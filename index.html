@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raydi Cham — Creative Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7F4EE;
+  --cream-mid: #EDE9E0;
+  --cream-deep: #DDD8CC;
+  --ink: #1A1917;
+  --ink-soft: #4A4740;
+  --ink-muted: #8A8680;
+  --sage: #A8B5A0;
+  --sage-light: #D4DDD0;
+  --blush: #D9B8B0;
+  --blush-light: #EDD8D2;
+  --sky: #B0C4D4;
+  --sky-light: #D8E6EF;
+  --sand: #C8B898;
+  --sand-light: #E4D8C4;
+  --serif: 'Inria Serif', Georgia, serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --ease: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0; z-index: 200;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(247,244,238,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(26,25,23,0.06);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 17px; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-soft); text-decoration: none;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  transition: color var(--ease);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none;
+  border: 1px solid var(--ink); padding: 7px 18px;
+  border-radius: 40px;
+  transition: background var(--ease), color var(--ease);
+}
+.nav-cta:hover { background: var(--ink); color: var(--cream); }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.nav-hamburger span { display:block; width:22px; height:1.5px; background:var(--ink); transition:var(--ease); }
+.mobile-menu {
+  display: none; position: fixed;
+  top: 60px; left: 0; right: 0;
+  background: rgba(247,244,238,0.97);
+  backdrop-filter: blur(14px);
+  z-index: 199; padding: 28px 24px 36px;
+  border-bottom: 1px solid var(--cream-deep);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu ul { list-style: none; }
+.mobile-menu li { border-bottom: 1px solid var(--cream-deep); }
+.mobile-menu a {
+  display:block; font-family:var(--serif);
+  font-size: 26px; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+  padding: 14px 0; transition: color var(--ease);
+}
+.mobile-menu a:hover { color: var(--ink-soft); }
+.mobile-menu .m-cta {
+  margin-top: 24px; display: inline-block;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  background: var(--ink); color: var(--cream);
+  padding: 12px 26px; border-radius: 40px; text-decoration: none;
+}
+
+/* ── HERO (full-bleed editorial) ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  max-height: 1000px;
+  overflow: hidden;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* full-bleed carousel sits behind everything */
+.hero-carousel-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.main-track {
+  display: flex;
+  height: 100%; width: 100%;
+  will-change: transform;
+  transition: transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.cs {
+  min-width: 100%; height: 100%;
+  flex-shrink: 0;
+  overflow: hidden; display:flex;
+  align-items:center; justify-content:center;
+  position: relative;
+}
+.cs img, .cs video {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.cs span {
+  font-family:var(--serif); font-size:clamp(14px,1.6vw,22px);
+  font-style:italic; font-weight:300;
+  color:var(--ink-soft); opacity:0.35;
+  user-select:none; text-align:center; padding:20px;
+  z-index:1;
+}
+.sp1{background:linear-gradient(160deg,#E8DDD4 0%,#D4C8B8 100%);}
+.sp2{background:linear-gradient(160deg,#C8D8E4 0%,#B8CCD8 100%);}
+.sp3{background:linear-gradient(160deg,#C8D4C0 0%,#B8C8B0 100%);}
+.sp4{background:linear-gradient(160deg,#DCD0C0 0%,#CCC0AC 100%);}
+.sp5{background:linear-gradient(160deg,#C8D4DC 0%,#B8C4D0 100%);}
+
+/* dark gradient scrim — bottom heavy so type is legible */
+.hero-scrim {
+  position: absolute;
+  inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(247,244,238,0.0) 0%,
+    rgba(247,244,238,0.0) 30%,
+    rgba(247,244,238,0.55) 65%,
+    rgba(247,244,238,0.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* top-left floating meta bar */
+.hero-meta-bar {
+  position: absolute;
+  top: 84px; left: 48px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-meta-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-meta-label::before {
+  content:'';
+  width: 18px; height: 1px;
+  background: var(--ink-muted);
+  display: inline-block;
+}
+
+/* top-right: slide counter + dots */
+.hero-counter {
+  position: absolute;
+  top: 84px; right: 48px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-counter-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+  min-width: 36px;
+  text-align: right;
+}
+.main-dots {
+  display: flex; gap: 5px;
+}
+.main-dots span {
+  width: 18px; height: 2px;
+  border-radius: 2px;
+  background: var(--cream-deep);
+  cursor: pointer;
+  transition: background var(--ease), width var(--ease);
+}
+.main-dots span.active {
+  background: var(--ink);
+  width: 36px;
+}
+
+
+
+/* bottom content: huge type + CTA row */
+.hero-bottom {
+  position: relative;
+  z-index: 4;
+  padding: 0 48px 44px;
+}
+
+/* oversized display title */
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(72px, 11vw, 160px);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 0;
+  /* let it bleed edge-to-edge */
+  white-space: nowrap;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+  letter-spacing: -0.05em;
+}
+/* outline/ghost style for one word */
+.hero-title .outline {
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: transparent;
+}
+
+/* bottom CTA row */
+.hero-cta-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+.hero-desc {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 300px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  font-family:var(--mono); font-size:11px;
+  letter-spacing:0.06em; text-transform:uppercase;
+  background:var(--ink); color:var(--cream);
+  text-decoration:none; padding:12px 26px;
+  border-radius:40px; display:inline-block;
+  transition: background var(--ease), transform var(--ease);
+}
+.btn-primary:hover { background:var(--ink-soft); transform:translateY(-1px); }
+.btn-ghost {
+  font-family:var(--mono); font-size:11px;
+  letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+  display:inline-flex; align-items:center; gap:8px;
+  transition: color var(--ease), gap var(--ease);
+}
+.btn-ghost:hover { color:var(--ink); gap:13px; }
+.btn-ghost::after { content:'→'; }
+
+/* ── SCROLL REVEAL (shuttle transitions) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s cubic-bezier(0.25,0.46,0.45,0.94),
+              transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── TICKER ── */
+.ticker-wrap { background:var(--ink); padding:12px 0; overflow:hidden; }
+.ticker-inner {
+  display:flex; gap:0; white-space:nowrap;
+  animation:ticker 30s linear infinite;
+}
+.ticker-item {
+  font-family:var(--mono); font-size:10px;
+  letter-spacing:0.10em; text-transform:uppercase;
+  color:var(--cream); padding:0 32px; opacity:0.7;
+}
+.ticker-dot { color:var(--blush); opacity:1; }
+@keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ── SECTIONS ── */
+section { padding:96px 48px; }
+.section-tag {
+  font-family:var(--mono); font-size:10px;
+  letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--ink-muted); margin-bottom:18px;
+  display:flex; align-items:center; gap:10px;
+}
+.section-tag::before { content:''; width:22px; height:1px; background:var(--ink-muted); }
+
+/* ── ABOUT ── */
+.about-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:72px; align-items:start; }
+.about-headline {
+  font-family:var(--serif); font-size:clamp(28px,3.5vw,50px);
+  font-weight:700; line-height:1.1; letter-spacing:-0.02em;
+  color:var(--ink); margin-bottom:24px;
+}
+.about-headline em { font-style:italic; font-weight:300; }
+.about-body { font-size:13px; line-height:1.9; color:var(--ink-soft); margin-bottom:28px; }
+.about-pills { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:28px; }
+.pill {
+  font-family:var(--mono); font-size:11px; letter-spacing:0.06em;
+  color:var(--ink-soft); border:1px solid var(--cream-deep);
+  border-radius:40px; padding:5px 14px; background:white;
+}
+.about-right { display:flex; flex-direction:column; gap:10px; }
+.stat-block {
+  background:white; border:1px solid var(--cream-deep);
+  border-radius:18px; padding:20px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:transform var(--ease), box-shadow var(--ease);
+}
+.stat-block:hover { transform:translateX(4px); box-shadow:0 8px 28px rgba(26,25,23,0.07); }
+.stat-block.ac-sage  { background:var(--sage-light);  border-color:var(--sage); }
+.stat-block.ac-blush { background:var(--blush-light); border-color:var(--blush); }
+.stat-block.ac-sky   { background:var(--sky-light);   border-color:var(--sky); }
+.stat-block.ac-sand  { background:var(--sand-light);  border-color:var(--sand); }
+.stat-num { font-family:var(--serif); font-size:36px; font-weight:700; line-height:1; color:var(--ink); }
+.stat-label { font-size:11px; letter-spacing:0.06em; color:var(--ink-soft); text-align:right; }
+
+/* ── WORK ── */
+.work-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:44px; flex-wrap:wrap; gap:18px; }
+.work-headline {
+  font-family:var(--serif); font-size:clamp(28px,3.5vw,50px);
+  font-weight:700; letter-spacing:-0.02em; line-height:1.05;
+  color:var(--ink); max-width:460px;
+}
+.work-headline em { font-style:italic; font-weight:300; }
+.projects-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
+.project-card {
+  border-radius:22px; overflow:hidden; position:relative;
+  cursor:pointer; transition:transform var(--ease);
+}
+.project-card:hover { transform:scale(1.012); }
+.project-card.large    { grid-column:span 7; aspect-ratio:16/10; }
+.project-card.small    { grid-column:span 5; aspect-ratio:4/3; }
+.project-card.medium   { grid-column:span 5; aspect-ratio:4/3; }
+.project-card.medium-r { grid-column:span 7; aspect-ratio:16/10; }
+.project-card.full     { grid-column:span 12; aspect-ratio:21/8; }
+.project-bg {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:72px; font-weight:700;
+  font-style:italic; opacity:0.11; color:var(--ink);
+  letter-spacing:-0.04em; user-select:none; overflow:hidden;
+}
+.pc-founders  { background:linear-gradient(135deg,#E8E4DC,#D4CEBC); }
+.pc-plgenesis { background:linear-gradient(135deg,#D8E8F0,#C4D8E8); }
+.pc-stablelab { background:linear-gradient(135deg,#E4E0EC,#D4CDE8); }
+.pc-forse     { background:linear-gradient(135deg,#F0E4D8,#E8D4C4); }
+.pc-dive      { background:linear-gradient(135deg,#D8EEE8,#C4E4DC); }
+.pc-prompt    { background:linear-gradient(135deg,#F0ECE0,#E4DCC8); }
+.pc-mantaray  { background:linear-gradient(135deg,#E0E8EE,#CCDAE6); }
+.project-inner {
+  position:absolute; inset:0; padding:24px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.project-meta {
+  font-size:10px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ink-muted); margin-bottom:5px;
+  display:flex; gap:8px; flex-wrap:wrap;
+}
+.project-name { font-family:var(--serif); font-size:20px; font-weight:700; letter-spacing:-0.02em; color:var(--ink); margin-bottom:3px; }
+.project-role { font-size:11px; color:var(--ink-soft); }
+.project-link {
+  position:absolute; top:18px; right:18px;
+  width:32px; height:32px;
+  background:rgba(247,244,238,0.85); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ink); font-size:12px; text-decoration:none;
+  opacity:0; transition:opacity var(--ease);
+}
+.project-card:hover .project-link { opacity:1; }
+.visual-label {
+  position:absolute; top:18px; left:18px;
+  background:rgba(247,244,238,0.85); border:1px solid var(--cream-deep);
+  border-radius:20px; padding:4px 11px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* ── CASE STUDY ── */
+.case-section {
+  background:var(--ink); color:var(--cream);
+  border-radius:36px; margin:0 24px; padding:80px 64px;
+}
+.case-section .section-tag { color:rgba(247,244,238,0.4); }
+.case-section .section-tag::before { background:rgba(247,244,238,0.4); }
+.case-headline {
+  font-family:var(--serif); font-size:clamp(28px,4vw,60px);
+  font-weight:700; letter-spacing:-0.03em; line-height:1.0;
+  color:var(--cream); margin-bottom:48px; max-width:700px;
+}
+.case-headline em { font-style:italic; font-weight:300; color:rgba(247,244,238,0.5); }
+.case-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:60px; }
+.case-body { font-size:13px; line-height:1.9; color:rgba(247,244,238,0.7); margin-bottom:18px; }
+.case-highlight {
+  font-family:var(--serif); font-size:18px; font-style:italic;
+  color:var(--cream); line-height:1.5;
+  border-left:2px solid var(--blush); padding-left:20px; margin:24px 0;
+}
+.case-stats {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:rgba(247,244,238,0.1);
+  border-radius:18px; overflow:hidden; margin-bottom:60px;
+}
+.case-stat { background:rgba(26,25,23,0.9); padding:28px 22px; text-align:center; }
+.case-stat-num { font-family:var(--serif); font-size:48px; font-weight:700; line-height:1; color:var(--cream); margin-bottom:7px; }
+.case-stat-label { font-size:10px; letter-spacing:0.08em; color:rgba(247,244,238,0.5); }
+
+/* ── PROCESS ── */
+.process-section {
+  padding:88px 64px; background:var(--cream-mid);
+  border-radius:36px; margin:0 24px 20px;
+}
+.process-headline {
+  font-family:var(--serif); font-size:clamp(26px,3vw,46px);
+  font-weight:700; letter-spacing:-0.02em; color:var(--ink);
+  max-width:440px; line-height:1.1;
+}
+.process-headline em { font-style:italic; font-weight:300; }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:48px; }
+.process-step { padding:32px 24px; border-right:1px solid var(--cream-deep); transition:background var(--ease); }
+.process-step:last-child { border-right:none; }
+.process-step:hover { background:rgba(255,255,255,0.55); }
+.process-num { font-family:var(--serif); font-size:52px; font-weight:700; line-height:1; color:var(--cream-deep); margin-bottom:16px; }
+.process-title { font-family:var(--serif); font-size:17px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.process-body { font-size:12px; line-height:1.8; color:var(--ink-soft); }
+
+/* ── BRANDS ── */
+.brands-section { text-align:center; }
+.brands-headline { font-family:var(--serif); font-size:clamp(24px,2.8vw,38px); font-weight:700; letter-spacing:-0.02em; color:var(--ink); margin-bottom:10px; }
+.brands-sub { font-size:12px; color:var(--ink-muted); margin-bottom:44px; }
+.brands-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; }
+.brand-tag {
+  font-family:var(--mono); font-size:11px; letter-spacing:0.06em;
+  color:var(--ink-soft); border:1px solid var(--cream-deep);
+  border-radius:40px; padding:8px 20px; background:white;
+  transition:background var(--ease), color var(--ease), border-color var(--ease);
+}
+.brand-tag:hover { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+
+/* ── BIO / TIMELINE ── */
+.bio-section { display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:center; }
+.bio-big {
+  font-family:var(--serif); font-size:clamp(22px,2.5vw,36px);
+  font-weight:400; line-height:1.35; letter-spacing:-0.01em;
+  color:var(--ink); margin-bottom:24px;
+}
+.bio-big strong { font-weight:700; }
+.bio-big em { font-style:italic; font-weight:300; }
+.bio-body { font-size:13px; line-height:1.9; color:var(--ink-soft); margin-bottom:20px; }
+.bio-right { display:flex; flex-direction:column; }
+.timeline-item { display:grid; grid-template-columns:78px 1fr; gap:16px; padding:20px 0; border-bottom:1px solid var(--cream-deep); }
+.timeline-year { font-size:10px; letter-spacing:0.08em; color:var(--ink-muted); padding-top:3px; }
+.timeline-title { font-family:var(--serif); font-size:15px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.timeline-sub { font-size:11px; color:var(--ink-soft); }
+
+/* ── TALKS ── */
+.talks-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
+.talk-card {
+  background:white; border:1px solid var(--cream-deep);
+  border-radius:18px; padding:26px;
+  display:flex; justify-content:space-between; align-items:flex-start;
+  transition:transform var(--ease);
+}
+.talk-card:hover { transform:translateY(-4px); }
+.talk-event { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:7px; }
+.talk-title { font-family:var(--serif); font-size:17px; font-weight:700; color:var(--ink); max-width:210px; }
+.talk-year { font-family:var(--serif); font-size:42px; font-weight:700; color:var(--cream-deep); line-height:1; }
+
+/* ── CONTACT ── */
+.contact-section {
+  background:var(--ink); color:var(--cream);
+  border-radius:36px; margin:0 24px 64px;
+  padding:80px 64px; text-align:center;
+}
+.contact-headline {
+  font-family:var(--serif); font-size:clamp(40px,5.5vw,84px);
+  font-weight:700; letter-spacing:-0.04em; line-height:0.9;
+  color:var(--cream); margin-bottom:20px;
+}
+.contact-headline em { font-style:italic; font-weight:300; opacity:0.5; }
+.contact-sub { font-size:13px; color:rgba(247,244,238,0.5); margin-bottom:40px; max-width:360px; margin-left:auto; margin-right:auto; }
+.contact-links { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.contact-btn {
+  font-family:var(--mono); font-size:11px; letter-spacing:0.07em;
+  text-transform:uppercase; text-decoration:none; padding:12px 26px;
+  border-radius:40px; transition:background var(--ease), color var(--ease);
+}
+.contact-btn.light { background:var(--cream); color:var(--ink); }
+.contact-btn.light:hover { background:var(--cream-mid); }
+.contact-btn.outline { border:1px solid rgba(247,244,238,0.22); color:var(--cream); }
+.contact-btn.outline:hover { background:rgba(247,244,238,0.1); }
+
+/* ── FOOTER ── */
+footer {
+  padding:32px 48px; display:flex;
+  justify-content:space-between; align-items:center;
+  font-size:11px; color:var(--ink-muted);
+  letter-spacing:0.06em; flex-wrap:wrap; gap:10px;
+}
+footer a { color:var(--ink-muted); text-decoration:none; }
+footer a:hover { color:var(--ink); }
+.divider { height:1px; background:var(--cream-deep); margin:0 48px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+.hero-left  { animation:fadeUp 0.9s ease 0.15s both; }
+.hero-right { animation:fadeUp 0.9s ease 0.32s both; }
+
+/* ── TABLET ≤ 1024px ── */
+@media(max-width:1024px){
+  nav { padding:16px 28px; }
+  .hero { min-height:600px; }
+  .hero-title { font-size: clamp(64px, 10vw, 120px); }
+  .hero-bottom { padding: 0 28px 36px; }
+  .hero-meta-bar { left:28px; }
+  .hero-counter { right:28px; }
+  section { padding:72px 28px; }
+  .about-grid { gap:44px; }
+  .projects-grid { grid-template-columns:repeat(6,1fr); }
+  .project-card.large    { grid-column:span 4; }
+  .project-card.small    { grid-column:span 2; }
+  .project-card.medium   { grid-column:span 3; }
+  .project-card.medium-r { grid-column:span 3; }
+  .project-card.full     { grid-column:span 6; aspect-ratio:16/6; }
+  .process-section { padding:72px 36px; margin:0 10px 14px; }
+  .case-section    { margin:0 10px; padding:64px 40px; }
+  .contact-section { margin:0 10px 48px; padding:64px 40px; }
+  .bio-section { gap:48px; }
+  .divider { margin:0 28px; }
+  footer { padding:28px 28px; }
+}
+
+/* ── MOBILE ≤ 768px ── */
+@media(max-width:768px){
+  nav { padding:14px 18px; }
+  .nav-links,.nav-cta { display:none; }
+  .nav-hamburger { display:flex; }
+
+  .hero {
+    height: 100svh;
+    min-height: 560px;
+    max-height: none;
+  }
+  .hero::before,.hero::after { display:none; }
+  .hero-title { font-size: clamp(52px, 13vw, 84px); white-space: normal; }
+  .hero-bottom { padding: 0 18px 28px; }
+  .hero-meta-bar { left:18px; top:72px; }
+  .hero-counter { right:18px; top:72px; }
+  .hero-counter-num { display:none; }
+  .hero-cta-row { flex-direction:column; align-items:flex-start; gap:20px; }
+  .hero-desc { max-width:100%; }
+  .main-carousel { max-height:none; }
+  .ss { min-width:88px; height:60px; }
+  .strip-carousel { display:block; }
+
+  section { padding:56px 18px; }
+  .divider { margin:0 18px; }
+
+  .about-grid { grid-template-columns:1fr; gap:36px; }
+  .about-right { grid-template-columns:1fr 1fr; }
+
+  .work-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .projects-grid { grid-template-columns:1fr; gap:12px; }
+  .project-card.large,.project-card.small,.project-card.medium,.project-card.medium-r { grid-column:span 1; aspect-ratio:4/3; }
+  .project-card.full { grid-column:span 1; aspect-ratio:3/2; }
+  .project-link { opacity:1!important; }
+
+  .case-section    { margin:0 10px; padding:44px 20px; border-radius:24px; }
+  .case-grid       { grid-template-columns:1fr; gap:0; margin-bottom:32px; }
+  .case-stats      { grid-template-columns:1fr; }
+  .case-headline   { font-size:clamp(24px,7vw,40px); }
+
+  .process-section { margin:0 10px 10px; padding:44px 20px; border-radius:24px; }
+  .process-grid    { grid-template-columns:1fr 1fr; }
+  .process-step    { padding:20px 14px; }
+  .process-step:nth-child(2)  { border-right:none; }
+  .process-step:nth-child(3)  { border-right:1px solid var(--cream-deep); border-top:1px solid var(--cream-deep); }
+  .process-step:nth-child(4)  { border-right:none; border-top:1px solid var(--cream-deep); }
+
+  .bio-section  { grid-template-columns:1fr; gap:36px; }
+  .talks-row    { grid-template-columns:1fr; }
+
+  .contact-section { margin:0 10px 44px; padding:44px 20px; border-radius:24px; }
+  .contact-headline { font-size:clamp(36px,9vw,58px); }
+  footer { padding:24px 18px; flex-direction:column; text-align:center; gap:6px; }
+}
+
+/* ── SMALL ≤ 420px ── */
+@media(max-width:420px){
+  .hero-title { font-size:48px; }
+  .about-right { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr; }
+  .process-step { border-right:none!important; border-top:1px solid var(--cream-deep); }
+  .process-step:first-child { border-top:none; }
+  .talks-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Raydi Cham</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:raydicham@gmail.com" class="nav-cta">Get in Touch</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#work"    onclick="closeMobile()">Work</a></li>
+    <li><a href="#about"   onclick="closeMobile()">About</a></li>
+    <li><a href="#process" onclick="closeMobile()">Process</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <a href="mailto:raydicham@gmail.com" class="m-cta">Get in Touch</a>
+</div>
+
+<!-- HERO — full-bleed editorial -->
+<div class="hero">
+
+  <!-- full-bleed background carousel -->
+  <div class="hero-carousel-bg" id="mainCarousel">
+    <div class="main-track" id="mainTrack">
+      <!-- CAROUSEL SLIDES — replace each .cs div with:
+           <div class="cs"><img src="images/carousel/01.jpg" alt="..."></div>
+           or video: <div class="cs"><video autoplay muted loop playsinline src="..."></video></div> -->
+      <div class="cs sp1"><span>Replace with artwork · 1280×720</span></div>
+      <div class="cs sp2"><span>Replace with artwork · 1280×720</span></div>
+      <div class="cs sp3"><span>Replace with artwork · 1280×720</span></div>
+      <div class="cs sp4"><span>Replace with artwork · 1280×720</span></div>
+      <div class="cs sp5"><span>Replace with artwork · 1280×720</span></div>
+    </div>
+  </div>
+
+  <!-- gradient scrim -->
+  <div class="hero-scrim"></div>
+
+  <!-- top-left meta -->
+  <div class="hero-meta-bar">
+    <span class="hero-meta-label">Creative Lead & Designer</span>
+    <span class="hero-meta-label">Available Worldwide</span>
+  </div>
+
+  <!-- top-right counter + dash indicators -->
+  <div class="hero-counter">
+    <span class="hero-counter-num" id="heroCounterNum">01 / 05</span>
+    <div class="main-dots" id="mainDots"></div>
+  </div>
+
+  <!-- bottom: huge type + CTA row -->
+  <div class="hero-bottom">
+    <h1 class="hero-title">
+      <span>Design</span><br>
+      <em>that</em> moves.
+    </h1>
+    <div class="hero-cta-row">
+      <p class="hero-desc">Brands, digital experiences &amp; visual systems — built for companies at the frontier of Web3, DeFi, and creative culture.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">View Work</a>
+        <a href="#about" class="btn-ghost">About me</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Brand Identity</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Web Design</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">UI / UX</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Visual Systems</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Web3 & DeFi</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Creative Direction</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Motion & Launch Assets</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Email & Growth</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Brand Identity</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Web Design</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">UI / UX</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Visual Systems</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Web3 & DeFi</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Creative Direction</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Motion & Launch Assets</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Email & Growth</span><span class="ticker-item ticker-dot">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="section-tag">About</div>
+      <h2 class="about-headline">One designer.<br><em>End-to-end.</em></h2>
+      <p class="about-body">I'm Raydi — a Creative Lead based in Kuala Lumpur. I bridge the gap between strategy and aesthetics, turning complex ideas into brands people actually want to engage with.<br><br>From building high-converting digital experiences for global platforms to crafting visual identities for Web3 protocols, I bring the same obsessive attention to craft whether I'm designing a landing page or an entire brand system.<br><br>I run <a href="https://mantaraystudio.io" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--cream-deep);">Mantaray Studio</a> — a boutique design studio for brands that move with depth and intention.</p>
+      <div class="about-pills">
+        <span class="pill">Brand Identity</span>
+        <span class="pill">UI / UX Design</span>
+        <span class="pill">Web3 & DeFi</span>
+        <span class="pill">Framer / Webflow</span>
+        <span class="pill">Creative Direction</span>
+        <span class="pill">Motion Design</span>
+        <span class="pill">Email & Growth</span>
+        <span class="pill">Figma</span>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="stat-block ac-sage"><div class="stat-num">12+</div><div class="stat-label">Years designing</div></div>
+      <div class="stat-block ac-blush"><div class="stat-num">15+</div><div class="stat-label">Brands built</div></div>
+      <div class="stat-block ac-sky"><div class="stat-num">6</div><div class="stat-label">Languages localized</div></div>
+      <div class="stat-block ac-sand"><div class="stat-num">2</div><div class="stat-label">Industry talks</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="work-header reveal">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <h2 class="work-headline">Brands <em>built</em><br>from the ground up.</h2>
+    </div>
+    <a href="https://mantaraystudio.io" class="btn-ghost" style="color:var(--ink-soft);">View all projects</a>
+  </div>
+  <div class="projects-grid reveal reveal-delay-2">
+    <div class="project-card large">
+      <div class="pc-founders" style="position:absolute;inset:0;"><div class="project-bg">FF</div></div>
+      <div class="visual-label">founders-forge.xyz</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Web Design</span><span>·</span><span>Brand Identity</span></div>
+        <div class="project-name">Founders Forge</div>
+        <div class="project-role">Full brand + website for a founder-first early-stage accelerator</div>
+      </div>
+      <a href="https://www.founders-forge.xyz/" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card small">
+      <div class="pc-plgenesis" style="position:absolute;inset:0;"><div class="project-bg">PL</div></div>
+      <div class="visual-label">plgenesis.com</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>UI/UX</span><span>·</span><span>Social Assets</span></div>
+        <div class="project-name">PL Genesis</div>
+        <div class="project-role">Web3 protocol identity, site & X visual system</div>
+      </div>
+      <a href="https://www.plgenesis.com/" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card medium">
+      <div class="pc-stablelab" style="position:absolute;inset:0;"><div class="project-bg">SL</div></div>
+      <div class="visual-label">StableLab</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Brand</span><span>·</span><span>Web Design</span></div>
+        <div class="project-name">StableLab</div>
+        <div class="project-role">DeFi governance platform identity & web experience</div>
+      </div>
+      <a href="https://x.com/StableLab/media" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card medium-r">
+      <div class="pc-forse" style="position:absolute;inset:0;"><div class="project-bg">Forse</div></div>
+      <div class="visual-label">forse.io</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Brand Identity</span><span>·</span><span>UI Design</span></div>
+        <div class="project-name">Forse</div>
+        <div class="project-role">Consumer fintech app — full brand and web presence</div>
+      </div>
+      <a href="https://x.com/Forseapp/media" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card small">
+      <div class="pc-dive" style="position:absolute;inset:0;"><div class="project-bg">↓</div></div>
+      <div class="visual-label">divetioman.com</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Web Design</span><span>·</span><span>UX</span></div>
+        <div class="project-name">Dive Tioman</div>
+        <div class="project-role">Diving resort — booking flow & brand refresh</div>
+      </div>
+      <a href="https://www.divetioman.com/" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card large">
+      <div class="pc-prompt" style="position:absolute;inset:0;"><div class="project-bg">PS</div></div>
+      <div class="visual-label">prompt-studio.agency</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Agency Brand</span><span>·</span><span>Web Design</span></div>
+        <div class="project-name">Prompt Studio</div>
+        <div class="project-role">AI-native creative agency — identity, positioning & site</div>
+      </div>
+      <a href="https://www.prompt-studio.agency/" class="project-link" target="_blank">↗</a>
+    </div>
+    <div class="project-card full">
+      <div class="pc-mantaray" style="position:absolute;inset:0;"><div class="project-bg">Mantaray Studio</div></div>
+      <div class="visual-label">mantaraystudio.io</div>
+      <div class="project-inner">
+        <div class="project-meta"><span>Studio Brand</span><span>·</span><span>Web Design</span><span>·</span><span>Creative Direction</span></div>
+        <div class="project-name">Mantaray Studio</div>
+        <div class="project-role">My boutique design studio — built from scratch. Brands that glide through noise.</div>
+      </div>
+      <a href="https://mantaraystudio.io/" class="project-link" target="_blank">↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<div class="case-section reveal">
+  <div class="section-tag">Case Study</div>
+  <h2 class="case-headline">PL Genesis: <em>Frontiers of Collaboration</em> — designing a hackathon that builders actually showed up for.</h2>
+  <div class="case-stats">
+    <div class="case-stat"><div class="case-stat-num">48h</div><div class="case-stat-label">Hackathon sprint</div></div>
+    <div class="case-stat"><div class="case-stat-num">∞</div><div class="case-stat-label">Web3 builders reached</div></div>
+    <div class="case-stat"><div class="case-stat-num">1</div><div class="case-stat-label">Designer. All of it.</div></div>
+  </div>
+  <div class="case-grid">
+    <div>
+      <p class="case-body">PL Genesis asked me to design the full visual identity and digital presence for their flagship hackathon — Frontiers of Collaboration. The brief was broad but the ambition was specific: create an event brand that felt serious enough for protocol engineers and exciting enough to generate organic buzz across the Web3 builder community.</p>
+      <div class="case-highlight">"The brand had to work at every scale — from a single tweet card to a full event stage. One visual system, zero compromises."</div>
+      <p class="case-body">I designed the event identity from the ground up: logo lockup, colour palette, typographic system, and a set of modular social templates that the team could deploy across X without needing a designer for every post.</p>
+    </div>
+    <div>
+      <p class="case-body">The website became the campaign's anchor — a conversion-focused landing page that communicated the hackathon's scope, prizes, and community ethos without overwhelming first-time visitors. Every section was designed to reduce friction on the path to registration.</p>
+      <p class="case-body">Alongside the digital work, I produced a suite of launch assets: announcement graphics, countdown cards, speaker tiles, and post-event recap visuals — all consistent with the core identity.</p>
+      <p class="case-body">Working within the Protocol Labs ecosystem taught me how to design for communities where trust is earned incrementally — through legibility, consistency, and a visual language that respects the intelligence of the audience.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section reveal" id="process">
+  <div class="section-tag">How I Work</div>
+  <p class="process-headline">Design with <em>intention</em>,<br>not just intuition.</p>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-title">Discover</div>
+      <p class="process-body">I start by listening. Understanding your audience, goals, and competitive landscape before a single pixel moves.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-title">Define</div>
+      <p class="process-body">Strategy informs aesthetics. I translate insights into a clear creative brief — positioning, tone, visual direction, success criteria.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-title">Design</div>
+      <p class="process-body">Craft without compromise. Every element is considered — from typeface pairings to micro-interactions — because the details are the design.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-title">Deploy</div>
+      <p class="process-body">Pixel-perfect builds in Framer, Webflow, or handoff. I stay involved through launch so nothing is lost in translation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<section class="brands-section reveal">
+  <div class="section-tag" style="justify-content:center;">Brands I've Designed For</div>
+  <h2 class="brands-headline">Built for builders.</h2>
+  <p class="brands-sub">A selection of companies I've had the privilege of working with.</p>
+  <div class="brands-grid">
+    <span class="brand-tag">Protocol Labs</span>
+    <span class="brand-tag">DevSpot</span>
+    <span class="brand-tag">PL Genesis</span>
+    <span class="brand-tag">Founders Forge</span>
+    <span class="brand-tag">StableLab</span>
+    <span class="brand-tag">Forse</span>
+    <span class="brand-tag">Request Network</span>
+    <span class="brand-tag">Play Projects</span>
+    <span class="brand-tag">Dive Tioman</span>
+    <span class="brand-tag">Kuaby</span>
+    <span class="brand-tag">Prompt Studio</span>
+    <span class="brand-tag">QuickSport</span>
+    <span class="brand-tag">SportNivaux Malaysia</span>
+    <span class="brand-tag">Mantaray Studio</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BIO + TIMELINE -->
+<section>
+  <div class="bio-section reveal">
+    <div>
+      <div class="section-tag">Background</div>
+      <p class="bio-big"><strong>Twelve years of design.</strong> Three studios. One very clear point of view — <em>every brand has a frequency. My job is to find it and amplify it.</em></p>
+      <p class="bio-body">I've spent my career at the intersection of craft and strategy — from shaping digital experiences for global platforms to building visual systems for Web3 protocols and DeFi products. I've spoken at ChainCulture and ETHKL, sharing what I've learned about designing at the frontier of emerging tech.</p>
+      <p class="bio-body">When I'm not designing, I'm thinking about design.</p>
+    </div>
+    <div class="bio-right">
+      <div class="timeline-item">
+        <div class="timeline-year">2022 →</div>
+        <div>
+          <div class="timeline-title">Mantaray Studio</div>
+          <div class="timeline-sub">Founder & Creative Lead — independent studio for brands that move with depth</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023 –</div>
+        <div>
+          <div class="timeline-title">StableLab & Forse</div>
+          <div class="timeline-sub">Brand identity, web design and visual systems for two fast-moving DeFi products</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2022 –</div>
+        <div>
+          <div class="timeline-title">Protocol Labs Ecosystem</div>
+          <div class="timeline-sub">Creative lead across PL Genesis, Founders Forge and the early builder group — brand, events, web</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2017 – 2022</div>
+        <div>
+          <div class="timeline-title">Global Ed-Tech Platform</div>
+          <div class="timeline-sub">Website & Graphic Designer — 5 years building high-converting digital experiences at global scale across 6 languages</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-tag" style="margin-top:64px;">Speaking</div>
+  <div class="talks-row">
+    <div class="talk-card">
+      <div>
+        <div class="talk-event">ChainCulture</div>
+        <div class="talk-title">All Things Design, Done by One</div>
+      </div>
+      <div class="talk-year">25</div>
+    </div>
+    <div class="talk-card">
+      <div>
+        <div class="talk-event">ETHKL</div>
+        <div class="talk-title">As Good As Web2: Designing Better UI/UX in Web3</div>
+      </div>
+      <div class="talk-year">24</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section reveal" id="contact">
+  <h2 class="contact-headline">Let's build<br><em>something</em><br>remarkable.</h2>
+  <p class="contact-sub">Whether you're launching a protocol, a product, or a studio — I'd love to be part of it from the start.</p>
+  <div class="contact-links">
+    <a href="mailto:raydicham@gmail.com" class="contact-btn light">Send an Email</a>
+    <a href="https://www.linkedin.com/in/raydicham" class="contact-btn outline" target="_blank">LinkedIn</a>
+    <a href="https://mantaraystudio.io" class="contact-btn outline" target="_blank">Mantaray Studio</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Raydi Cham. All rights reserved.</span>
+  <span>raydicham@gmail.com · +60 16 611 4935</span>
+  <span>Kuala Lumpur, Malaysia</span>
+</footer>
+
+<script>
+/* ── Mobile nav ── */
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
+document.getElementById('hamburger').addEventListener('click',function(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+
+/* ── Main carousel (auto-advance + dash indicators + counter + swipe) ── */
+(function(){
+  var wrap   = document.getElementById('mainCarousel');
+  var track  = document.getElementById('mainTrack');
+  var dotsEl = document.getElementById('mainDots');
+  var numEl  = document.getElementById('heroCounterNum');
+  if(!track) return;
+
+  var slides = Array.from(track.querySelectorAll('.cs'));
+  var total  = slides.length;
+  var cur    = 0;
+  var timer;
+
+  /* dash indicators */
+  slides.forEach(function(_,i){
+    var d = document.createElement('span');
+    if(i===0) d.classList.add('active');
+    d.addEventListener('click', function(){ jump(i); });
+    dotsEl.appendChild(d);
+  });
+  var dots = Array.from(dotsEl.querySelectorAll('span'));
+
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function setActive(i){
+    dots.forEach(function(d){ d.classList.remove('active'); });
+    if(dots[i]) dots[i].classList.add('active');
+    if(numEl) numEl.textContent = pad(i+1)+' / '+pad(total);
+  }
+
+  function getW(){ return wrap.offsetWidth; }
+
+  function goTo(i, instant){
+    track.style.transition = instant ? 'none' : 'transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94)';
+    track.style.transform  = 'translateX(-'+(i*getW())+'px)';
+    setActive(i);
+  }
+
+  function jump(i){ cur=i; goTo(i,false); resetTimer(); }
+  function next(){ cur=(cur+1)%total; goTo(cur,false); }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+  resetTimer();
+
+  /* swipe */
+  var startX, dragging=false;
+  track.addEventListener('pointerdown',function(e){
+    startX=e.clientX; dragging=true;
+    track.style.transition='none';
+    clearInterval(timer);
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove',function(e){
+    if(!dragging) return;
+    track.style.transform='translateX('+(-(cur*getW())+(e.clientX-startX))+'px)';
+  });
+  track.addEventListener('pointerup',function(e){
+    if(!dragging) return;
+    dragging=false;
+    var dx=e.clientX-startX;
+    if(dx<-48 && cur<total-1) cur++;
+    else if(dx>48 && cur>0) cur--;
+    goTo(cur,false);
+    resetTimer();
+  });
+  window.addEventListener('resize',function(){ goTo(cur,true); });
+})();
+
+/* ── Scroll-reveal shuttle transitions ── */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  els.forEach(function(el){ observer.observe(el); });
+})();
+</script>
+</body>
+</html>
