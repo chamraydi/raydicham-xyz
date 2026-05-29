@@ -132,7 +132,7 @@ nav {
   transition: transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .cs {
-  min-width: 100%; height: 100%;
+  width: 100vw; min-width: 100vw; height: 100%;
   flex-shrink: 0;
   overflow: hidden; display:flex;
   align-items:center; justify-content:center;
@@ -1047,7 +1047,7 @@ document.getElementById('hamburger').addEventListener('click',function(){
     if(numEl) numEl.textContent = pad(i+1)+' / '+pad(total);
   }
 
-  function getW(){ return wrap.offsetWidth; }
+  function getW(){ return window.innerWidth; }
 
   function goTo(i, instant){
     track.style.transition = instant ? 'none' : 'transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94)';
