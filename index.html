@@ -269,7 +269,7 @@ nav {
   font-size: 12px;
   line-height: 1.8;
   color: #878787;
-  max-width: 300px;
+  max-width: 350px;
 }
 .hero-actions {
   display: flex;
@@ -364,6 +364,7 @@ section { padding:96px 48px; }
 .stat-block.ac-blush { background:var(--blush-light); border-color:var(--blush); }
 .stat-block.ac-sky   { background:var(--sky-light);   border-color:var(--sky); }
 .stat-block.ac-sand  { background:var(--sand-light);  border-color:var(--sand); }
+.stat-block.ac-black-cool-500  { background:#FAF9F6;  border-color:#E0E0DD; }
 .stat-num { font-family:var(--serif); font-size:36px; font-weight:700; line-height:1; color:var(--ink); }
 .stat-label { font-size:11px; letter-spacing:0.06em; color:var(--ink-soft); text-align:right; }
 
@@ -382,8 +383,8 @@ section { padding:96px 48px; }
 }
 .project-card:hover { transform:scale(1.012); }
 .project-card.large    { grid-column:span 7; aspect-ratio:16/10; }
-.project-card.small    { grid-column:span 5; aspect-ratio:4/3; }
-.project-card.medium   { grid-column:span 5; aspect-ratio:4/3; }
+.project-card.small    { grid-column:span 5; }
+.project-card.medium   { grid-column:span 5; }
 .project-card.medium-r { grid-column:span 7; aspect-ratio:16/10; }
 .project-card.full     { grid-column:span 12; aspect-ratio:21/8; }
 .project-bg {
@@ -656,6 +657,10 @@ footer a:hover { color:var(--ink); }
   .cs .img-mobile  { display: block; }
 }
 
+.technical-skills {
+  margin-bottom: 14px;
+}
+
 </style>
 </head>
 <body>
@@ -773,21 +778,21 @@ footer a:hover { color:var(--ink); }
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <span class="ticker-item">Brand Identity</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Web Design</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">UI / UX</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Visual Systems</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Website Design/Development</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">UI/UX</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Design Systems</span><span class="ticker-item ticker-dot">·</span>
     <span class="ticker-item">Web3 & DeFi</span><span class="ticker-item ticker-dot">·</span>
     <span class="ticker-item">Creative Direction</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Motion & Launch Assets</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Email & Growth</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Brand Identity</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Web Design</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">UI / UX</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Visual Systems</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Web3 & DeFi</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Creative Direction</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Motion & Launch Assets</span><span class="ticker-item ticker-dot">·</span>
-    <span class="ticker-item">Email & Growth</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Motion Design</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Email Marketing & Growth</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">AI-Assisted Creative Workflow</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Graphic Design</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Video Production</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Merchandising</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Campaign Assets</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Illustration</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Podcast</span><span class="ticker-item ticker-dot">·</span>
+    <span class="ticker-item">Presentation Design</span><span class="ticker-item ticker-dot">·</span>
   </div>
 </div>
 
@@ -798,22 +803,40 @@ footer a:hover { color:var(--ink); }
       <div class="section-tag">About</div>
       <h2 class="about-headline">One designer.<br><em>End-to-end.</em></h2>
       <p class="about-body">I'm Raydi — a Creative Lead based in Kuala Lumpur. I bridge the gap between strategy and aesthetics, turning complex ideas into brands people actually want to engage with.<br><br>From building high-converting digital experiences for global platforms to crafting visual identities for Web3 protocols, I bring the same obsessive attention to craft whether I'm designing a landing page or an entire brand system.<br><br>I run <a href="https://mantaraystudio.io" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--cream-deep);">Mantaray Studio</a> — a boutique design studio for brands that move with depth and intention.</p>
+
+      <p class="technical-skills">TECHNICAL SKILLS</p>
+     
       <div class="about-pills">
-        <span class="pill">Brand Identity</span>
-        <span class="pill">UI / UX Design</span>
-        <span class="pill">Web3 & DeFi</span>
-        <span class="pill">Framer / Webflow</span>
-        <span class="pill">Creative Direction</span>
-        <span class="pill">Motion Design</span>
-        <span class="pill">Email & Growth</span>
         <span class="pill">Figma</span>
+        <span class="pill">Claude</span>
+        <span class="pill">Luma Labs</span>
+        <span class="pill">Framer</span>
+        <span class="pill">Webflow</span>
+        <span class="pill">Adobe Premiere Pro</span>
+        <span class="pill">Adobe Photoshop</span>
+        <span class="pill">Adobe Illustrator</span>
+        <span class="pill">Adobe After Effects</span>
+        <span class="pill">Cursor</span>
+        <span class="pill">DaVinci Resolve</span>
+        <span class="pill">Linearity Move</span>
+        <span class="pill">Blender</span>
+        <span class="pill">Autodesk Maya</span>
+        <span class="pill">Notion</span>
+        <span class="pill">Linear</span>
+        <span class="pill">Flutterflow</span>
+        <span class="pill">Supabase</span>
+
+
       </div>
     </div>
     <div class="about-right reveal reveal-delay-2">
-      <div class="stat-block ac-sage"><div class="stat-num">12+</div><div class="stat-label">Years designing</div></div>
-      <div class="stat-block ac-blush"><div class="stat-num">15+</div><div class="stat-label">Brands built</div></div>
-      <div class="stat-block ac-sky"><div class="stat-num">6</div><div class="stat-label">Languages localized</div></div>
-      <div class="stat-block ac-sand"><div class="stat-num">2</div><div class="stat-label">Industry talks</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">7 Figure</div><div class="stat-label">REVENUE INFLUENCED BY DESIGN</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">9+</div><div class="stat-label">YEARS DESIGNING</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">7</div><div class="stat-label">GLOBAL BRANDS BUILT</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">2</div><div class="stat-label">INDUSTRY TALKS</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">100+</div><div class="stat-label">WEBSITE BUILT</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">1,000+</div><div class="stat-label">ASSETS DELIVER</div></div>
+      <div class="stat-block ac-black-cool-500"><div class="stat-num">10,000km+</div><div class="stat-label">RAN IN SEARCH OF INSPIRATIONS</div></div>
     </div>
   </div>
 </section>
@@ -909,7 +932,7 @@ footer a:hover { color:var(--ink); }
   <h2 class="case-headline">PL Genesis: <em>Frontiers of Collaboration</em> — designing a hackathon that builders actually showed up for.</h2>
   <div class="case-stats">
     <div class="case-stat"><div class="case-stat-num">48h</div><div class="case-stat-label">Hackathon sprint</div></div>
-    <div class="case-stat"><div class="case-stat-num">∞</div><div class="case-stat-label">Web3 builders reached</div></div>
+    <div class="case-stat"><div class="case-stat-num">2,475</div><div class="case-stat-label">Web3 builders reached</div></div>
     <div class="case-stat"><div class="case-stat-num">1</div><div class="case-stat-label">Designer. All of it.</div></div>
   </div>
   <div class="case-grid">
