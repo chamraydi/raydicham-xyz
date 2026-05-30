@@ -645,6 +645,17 @@ footer a:hover { color:var(--ink); }
   .process-step:first-child { border-top:none; }
   .talks-row { grid-template-columns:1fr; }
 }
+
+/* Desktop image shown by default */
+.cs .img-desktop { display: block; }
+.cs .img-mobile  { display: none;  }
+
+/* On mobile swap to portrait image */
+@media (max-width: 768px) {
+  .cs .img-desktop { display: none;  }
+  .cs .img-mobile  { display: block; }
+}
+
 </style>
 </head>
 <body>
@@ -683,14 +694,47 @@ footer a:hover { color:var(--ink); }
       <!-- CAROUSEL SLIDES — replace each .cs div with:
            <div class="cs"><img src="images/carousel/01.jpg" alt="..."></div>
            or video: <div class="cs"><video autoplay muted loop playsinline src="..."></video></div> -->
-           <div class="cs"><img src="images/carousel/project-1.png" alt="Project name"></div>
-           <div class="cs"><img src="images/carousel/project-2.png" alt="Project name"></div>
-           <div class="cs"><img src="images/carousel/project-3.png" alt="Project name"></div>
-           <div class="cs"><video autoplay muted loop playsinline>
+           <div class="cs">
+            <img class="img-desktop"
+            src="images/carousel/project-1.png"
+            alt="Project 1">
+            <img class="img-mobile"
+            src="images/carousel/project-1-mobile.png"
+            alt="Project 1">
+          </div>
+
+          <div class="cs">
+            <img class="img-desktop"
+            src="images/carousel/project-2.png"
+            alt="Project 1">
+            <img class="img-mobile"
+            src="images/carousel/project-2-mobile.png"
+            alt="Project 1">
+          </div>
+
+          <div class="cs">
+            <img class="img-desktop"
+            src="images/carousel/project-3.png"
+            alt="Project 1">
+            <img class="img-mobile"
+            src="images/carousel/project-3-mobile.png"
+            alt="Project 1">
+          </div>
+           
+          <div class="cs"><video autoplay muted loop playsinline>
             <source src="images/carousel/ff-documentary-trailer-compressed-4.mp4" type="video/mp4">
           </video></div>
-          <div class="cs"><img src="images/carousel/project-5.png" alt="Project name"></div>
-    </div>
+          
+          <div class="cs">
+            <img class="img-desktop"
+            src="images/carousel/project-5.png"
+            alt="Project 1">
+            <img class="img-mobile"
+            src="images/carousel/project-5-mobile.png"
+            alt="Project 1">
+          </div>
+
+        </div>
   </div>
 
   <!-- gradient scrim -->
